@@ -1,10 +1,11 @@
 package org.kohsuke.github;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-
 import java.io.Serializable;
 import java.net.URL;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 /**
  * Represents an error from GitHub.

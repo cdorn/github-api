@@ -1,11 +1,5 @@
 package org.kohsuke.github.extras;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-import org.apache.commons.io.IOUtils;
-import org.kohsuke.github.connector.GitHubConnector;
-import org.kohsuke.github.connector.GitHubConnectorRequest;
-import org.kohsuke.github.connector.GitHubConnectorResponse;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InterruptedIOException;
@@ -18,6 +12,13 @@ import java.util.Map;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
+
+import org.apache.commons.io.IOUtils;
+import org.kohsuke.github.connector.GitHubConnector;
+import org.kohsuke.github.connector.GitHubConnectorRequest;
+import org.kohsuke.github.connector.GitHubConnectorResponse;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 /**
  * {@link GitHubConnector} for {@link HttpClient}.

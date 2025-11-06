@@ -1,8 +1,8 @@
 package org.kohsuke.github;
 
-import org.kohsuke.github.connector.GitHubConnectorResponse;
-
 import java.io.IOException;
+
+import org.kohsuke.github.connector.GitHubConnectorResponse;
 
 /**
  * Special {@link IOException} case for http exceptions, when {@link HttpException} is thrown due to GitHub service

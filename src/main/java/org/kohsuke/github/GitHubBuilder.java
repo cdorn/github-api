@@ -1,11 +1,5 @@
 package org.kohsuke.github;
 
-import org.apache.commons.io.IOUtils;
-import org.kohsuke.github.authorization.AuthorizationProvider;
-import org.kohsuke.github.authorization.ImmutableAuthorizationProvider;
-import org.kohsuke.github.connector.GitHubConnector;
-import org.kohsuke.github.connector.GitHubConnectorResponse;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,6 +9,12 @@ import java.util.Map.Entry;
 import java.util.Properties;
 
 import javax.annotation.Nonnull;
+
+import org.apache.commons.io.IOUtils;
+import org.kohsuke.github.authorization.AuthorizationProvider;
+import org.kohsuke.github.authorization.ImmutableAuthorizationProvider;
+import org.kohsuke.github.connector.GitHubConnector;
+import org.kohsuke.github.connector.GitHubConnectorResponse;
 
 // TODO: Auto-generated Javadoc
 /**

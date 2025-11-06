@@ -1,10 +1,11 @@
 package org.kohsuke.github;
 
+import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JacksonInject;
+
 import edu.umd.cs.findbugs.annotations.CheckForNull;
 import edu.umd.cs.findbugs.annotations.NonNull;
-
-import java.util.Objects;
 
 /**
  * Defines a base class that all classes in this library that interact with GitHub inherit from.

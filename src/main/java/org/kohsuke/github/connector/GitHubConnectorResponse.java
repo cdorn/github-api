@@ -1,7 +1,6 @@
 package org.kohsuke.github.connector;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-import org.apache.commons.io.IOUtils;
+import static java.net.HttpURLConnection.HTTP_OK;
 
 import java.io.ByteArrayInputStream;
 import java.io.Closeable;
@@ -18,7 +17,9 @@ import java.util.zip.GZIPInputStream;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 
-import static java.net.HttpURLConnection.HTTP_OK;
+import org.apache.commons.io.IOUtils;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 /**
  * Response information supplied when a response is received and before the body is processed.

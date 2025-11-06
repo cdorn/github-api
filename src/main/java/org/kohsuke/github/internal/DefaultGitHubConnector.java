@@ -1,9 +1,10 @@
 package org.kohsuke.github.internal;
 
-import okhttp3.OkHttpClient;
 import org.kohsuke.github.connector.GitHubConnector;
 import org.kohsuke.github.extras.HttpClientGitHubConnector;
 import org.kohsuke.github.extras.okhttp3.OkHttpGitHubConnector;
+
+import okhttp3.OkHttpClient;
 
 /**
  * Internal class that selects what kind of {@link GitHubConnector} will be the default.

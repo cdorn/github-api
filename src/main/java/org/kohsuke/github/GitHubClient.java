@@ -1,29 +1,5 @@
 package org.kohsuke.github;
 
-import com.fasterxml.jackson.databind.*;
-import com.fasterxml.jackson.databind.introspect.VisibilityChecker;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import org.apache.commons.io.IOUtils;
-import org.kohsuke.github.authorization.AuthorizationProvider;
-import org.kohsuke.github.authorization.UserAuthorizationProvider;
-import org.kohsuke.github.connector.GitHubConnector;
-import org.kohsuke.github.connector.GitHubConnectorRequest;
-import org.kohsuke.github.connector.GitHubConnectorResponse;
-import org.kohsuke.github.function.FunctionThrows;
-
-import java.io.*;
-import java.net.*;
-import java.time.Instant;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
-import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.logging.Logger;
-
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.NONE;
 import static java.net.HttpURLConnection.HTTP_ACCEPTED;
@@ -32,8 +8,53 @@ import static java.net.HttpURLConnection.HTTP_MOVED_PERM;
 import static java.net.HttpURLConnection.HTTP_MOVED_TEMP;
 import static java.net.HttpURLConnection.HTTP_NOT_MODIFIED;
 import static java.net.HttpURLConnection.HTTP_UNAUTHORIZED;
-import static java.util.logging.Level.*;
+import static java.util.logging.Level.FINE;
+import static java.util.logging.Level.FINER;
+import static java.util.logging.Level.FINEST;
+import static java.util.logging.Level.INFO;
 import static org.apache.commons.lang3.StringUtils.defaultString;
+
+import java.io.ByteArrayInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InterruptedIOException;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
+import java.time.Instant;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.logging.Logger;
+
+import javax.annotation.CheckForNull;
+import javax.annotation.Nonnull;
+
+import org.apache.commons.io.IOUtils;
+import org.kohsuke.github.authorization.AuthorizationProvider;
+import org.kohsuke.github.authorization.UserAuthorizationProvider;
+import org.kohsuke.github.connector.GitHubConnector;
+import org.kohsuke.github.connector.GitHubConnectorRequest;
+import org.kohsuke.github.connector.GitHubConnectorResponse;
+import org.kohsuke.github.function.FunctionThrows;
+
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.InjectableValues;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectReader;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.introspect.VisibilityChecker;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 // TODO: Auto-generated Javadoc
 /**

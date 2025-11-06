@@ -1,11 +1,5 @@
 package org.kohsuke.github.extras.okhttp3;
 
-import okhttp3.*;
-import org.apache.commons.io.IOUtils;
-import org.kohsuke.github.connector.GitHubConnector;
-import org.kohsuke.github.connector.GitHubConnectorRequest;
-import org.kohsuke.github.connector.GitHubConnectorResponse;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
@@ -15,6 +9,19 @@ import java.util.concurrent.TimeUnit;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
+
+import org.apache.commons.io.IOUtils;
+import org.kohsuke.github.connector.GitHubConnector;
+import org.kohsuke.github.connector.GitHubConnectorRequest;
+import org.kohsuke.github.connector.GitHubConnectorResponse;
+
+import okhttp3.CacheControl;
+import okhttp3.ConnectionSpec;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 /**
  * {@link GitHubConnector} for {@link OkHttpClient}.

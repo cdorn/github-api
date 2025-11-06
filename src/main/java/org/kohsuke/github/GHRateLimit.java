@@ -1,11 +1,6 @@
 package org.kohsuke.github;
 
-import com.fasterxml.jackson.annotation.JacksonInject;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-import org.apache.commons.lang3.StringUtils;
-import org.kohsuke.github.connector.GitHubConnectorResponse;
+import static java.util.logging.Level.FINEST;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -20,7 +15,14 @@ import java.util.logging.Logger;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 
-import static java.util.logging.Level.FINEST;
+import org.apache.commons.lang3.StringUtils;
+import org.kohsuke.github.connector.GitHubConnectorResponse;
+
+import com.fasterxml.jackson.annotation.JacksonInject;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 // TODO: Auto-generated Javadoc
 /**

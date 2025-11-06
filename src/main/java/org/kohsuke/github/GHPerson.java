@@ -1,16 +1,9 @@
 package org.kohsuke.github;
 
-import com.infradna.tool.bridge_method_injector.WithBridgeMethods;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
-import java.time.Instant;
-import java.util.Collections;
-import java.util.Date;
-import java.util.Map;
 import java.util.Optional;
-import java.util.TreeMap;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -80,18 +73,7 @@ public abstract class GHPerson extends GHObject {
         return company;
     }
 
-    /**
-     * Gets the created at.
-     *
-     * @return the created at
-     * @throws IOException
-     *             Signals that an I/O exception has occurred.
-     */
-    @WithBridgeMethods(value = Date.class, adapterMethod = "instantToDate")
-    public Instant getCreatedAt() throws IOException {
-        populate();
-        return super.getCreatedAt();
-    }
+
 
     /**
      * Gets the e-mail address of the user.
@@ -196,39 +178,6 @@ public abstract class GHPerson extends GHObject {
     }
 
     /**
-     * Gets the public repositories this user owns.
-     *
-     * <p>
-     * To list your own repositories, including private repositories, use {@link GHMyself#listRepositories()}
-     *
-     * @return the repositories
-     */
-    public synchronized Map<String, GHRepository> getRepositories() {
-        Map<String, GHRepository> repositories = new TreeMap<String, GHRepository>();
-        for (GHRepository r : listRepositories().withPageSize(100)) {
-            repositories.put(r.getName(), r);
-        }
-        return Collections.unmodifiableMap(repositories);
-    }
-
-    /**
-     * Gets repository.
-     *
-     * @param name
-     *            the name
-     * @return null if the repository was not found
-     * @throws IOException
-     *             the io exception
-     */
-    public GHRepository getRepository(String name) throws IOException {
-        try {
-            return GHRepository.read(root(), login, name);
-        } catch (FileNotFoundException e) {
-            return null;
-        }
-    }
-
-    /**
      * Gets total private repo count.
      *
      * @return the total private repo count
@@ -266,18 +215,7 @@ public abstract class GHPerson extends GHObject {
         return type;
     }
 
-    /**
-     * Gets the updated at.
-     *
-     * @return the updated at
-     * @throws IOException
-     *             Signals that an I/O exception has occurred.
-     */
-    @WithBridgeMethods(value = Date.class, adapterMethod = "instantToDate")
-    public Instant getUpdatedAt() throws IOException {
-        populate();
-        return super.getUpdatedAt();
-    }
+
 
     /**
      * Gets the siteAdmin field.
@@ -291,42 +229,9 @@ public abstract class GHPerson extends GHObject {
         return siteAdmin;
     }
 
-    /**
-     * Lists events for an organization or an user.
-     *
-     * @return the paged iterable
-     * @throws IOException
-     *             the io exception
-     */
-    public abstract PagedIterable<GHEventInfo> listEvents() throws IOException;
+   
 
-    /**
-     * List all the repositories using a default of 30 items page size.
-     * <p>
-     * Unlike {@link #getRepositories()}, this does not wait until all the repositories are returned.
-     *
-     * @return the paged iterable
-     */
-    public PagedIterable<GHRepository> listRepositories() {
-        return root().createRequest()
-                .withUrlPath("/users/" + login + "/repos")
-                .toIterable(GHRepository[].class, null)
-                .withPageSize(30);
-    }
-
-    /**
-     * Lists up all the repositories using the specified page size.
-     *
-     * @param pageSize
-     *            size for each page of items returned by GitHub. Maximum page size is 100. Unlike
-     *            {@link #getRepositories()}, this does not wait until all the repositories are returned.
-     * @return the paged iterable
-     * @deprecated Use #listRepositories().withPageSize() instead.
-     */
-    @Deprecated
-    public PagedIterable<GHRepository> listRepositories(final int pageSize) {
-        return listRepositories().withPageSize(pageSize);
-    }
+    
 
     /**
      * Fully populate the data by retrieving missing data.
@@ -337,9 +242,7 @@ public abstract class GHPerson extends GHObject {
      *             the io exception
      */
     protected synchronized void populate() throws IOException {
-        if (super.getCreatedAt() != null) {
-            return; // already populated
-        }
+        
         if (isOffline()) {
             return; // cannot populate, will have to live with what we have
         }
@@ -349,3 +252,4 @@ public abstract class GHPerson extends GHObject {
         }
     }
 }
+

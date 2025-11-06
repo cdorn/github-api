@@ -1,7 +1,8 @@
 package org.kohsuke.github;
 
-import org.jetbrains.annotations.NotNull;
-import org.kohsuke.github.connector.GitHubConnectorResponse;
+import static java.net.HttpURLConnection.HTTP_BAD_REQUEST;
+import static java.net.HttpURLConnection.HTTP_INTERNAL_ERROR;
+import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -11,9 +12,8 @@ import java.nio.charset.StandardCharsets;
 
 import javax.annotation.Nonnull;
 
-import static java.net.HttpURLConnection.HTTP_BAD_REQUEST;
-import static java.net.HttpURLConnection.HTTP_INTERNAL_ERROR;
-import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
+import org.jetbrains.annotations.NotNull;
+import org.kohsuke.github.connector.GitHubConnectorResponse;
 
 // TODO: Auto-generated Javadoc
 /**

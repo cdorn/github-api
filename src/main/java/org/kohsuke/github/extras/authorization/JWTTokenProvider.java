@@ -1,8 +1,5 @@
 package org.kohsuke.github.extras.authorization;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-import org.kohsuke.github.authorization.AuthorizationProvider;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -18,6 +15,10 @@ import java.time.Instant;
 import java.util.Base64;
 
 import javax.annotation.Nonnull;
+
+import org.kohsuke.github.authorization.AuthorizationProvider;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 /**
  * A authorization provider that gives valid JWT tokens. These tokens are then used to create a time-based token to

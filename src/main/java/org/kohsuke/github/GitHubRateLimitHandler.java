@@ -1,7 +1,6 @@
 package org.kohsuke.github;
 
-import org.jetbrains.annotations.NotNull;
-import org.kohsuke.github.connector.GitHubConnectorResponse;
+import static java.net.HttpURLConnection.HTTP_FORBIDDEN;
 
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -11,7 +10,8 @@ import java.time.format.DateTimeFormatter;
 
 import javax.annotation.Nonnull;
 
-import static java.net.HttpURLConnection.HTTP_FORBIDDEN;
+import org.jetbrains.annotations.NotNull;
+import org.kohsuke.github.connector.GitHubConnectorResponse;
 
 // TODO: Auto-generated Javadoc
 /**

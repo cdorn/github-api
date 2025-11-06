@@ -1,12 +1,8 @@
 package org.kohsuke.github;
 
-import com.infradna.tool.bridge_method_injector.WithBridgeMethods;
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-
-import java.time.Instant;
-import java.util.Date;
-
 import javax.annotation.CheckForNull;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -29,15 +25,7 @@ public class GitUser extends GitHubBridgeAdapterObject {
         // Empty constructor for Jackson binding
     }
 
-    /**
-     * Gets date.
-     *
-     * @return Commit Date.
-     */
-    @WithBridgeMethods(value = Date.class, adapterMethod = "instantToDate")
-    public Instant getDate() {
-        return GitHubClient.parseInstant(date);
-    }
+   
 
     /**
      * Gets the git email for an author or committer on a git commit.

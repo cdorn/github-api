@@ -23,12 +23,6 @@
  */
 package org.kohsuke.github;
 
-import edu.umd.cs.findbugs.annotations.NonNull;
-import org.apache.commons.io.IOUtils;
-import org.kohsuke.github.connector.GitHubConnectorResponse;
-import org.kohsuke.github.function.InputStreamFunction;
-import org.kohsuke.github.internal.graphql.response.GHGraphQLResponse;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,6 +30,13 @@ import java.util.Iterator;
 import java.util.function.Consumer;
 
 import javax.annotation.Nonnull;
+
+import org.apache.commons.io.IOUtils;
+import org.kohsuke.github.connector.GitHubConnectorResponse;
+import org.kohsuke.github.function.InputStreamFunction;
+import org.kohsuke.github.internal.graphql.response.GHGraphQLResponse;
+
+import edu.umd.cs.findbugs.annotations.NonNull;
 
 // TODO: Auto-generated Javadoc
 /**

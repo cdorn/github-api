@@ -1,16 +1,17 @@
 package org.kohsuke.github.example.dataobject;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSetter;
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
 import javax.annotation.Nonnull;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSetter;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 /**
  * {@link org.kohsuke.github.GHMeta} wraps the list of GitHub's IP addresses.

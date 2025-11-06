@@ -1,11 +1,11 @@
 package org.kohsuke.github;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-
 import java.io.IOException;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 /**
  * An abstract data object builder/updater.

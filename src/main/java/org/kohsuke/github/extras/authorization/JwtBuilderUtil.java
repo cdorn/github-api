@@ -1,12 +1,5 @@
 package org.kohsuke.github.extras.authorization;
 
-import io.jsonwebtoken.JwtBuilder;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.io.Serializer;
-import io.jsonwebtoken.jackson.io.JacksonSerializer;
-import io.jsonwebtoken.security.SignatureAlgorithm;
-import org.kohsuke.github.GHException;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.security.Key;
@@ -14,6 +7,14 @@ import java.security.PrivateKey;
 import java.time.Instant;
 import java.util.Date;
 import java.util.logging.Logger;
+
+import org.kohsuke.github.GHException;
+
+import io.jsonwebtoken.JwtBuilder;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.io.Serializer;
+import io.jsonwebtoken.jackson.io.JacksonSerializer;
+import io.jsonwebtoken.security.SignatureAlgorithm;
 
 /**
  * This is a util to build a JWT.

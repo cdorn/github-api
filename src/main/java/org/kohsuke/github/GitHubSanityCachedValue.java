@@ -1,9 +1,9 @@
 package org.kohsuke.github;
 
-import org.kohsuke.github.function.SupplierThrows;
-
 import java.time.Instant;
 import java.util.function.Function;
+
+import org.kohsuke.github.function.SupplierThrows;
 
 /**
  * GitHubSanityCachedValue limits queries for a particular value to once per second.
