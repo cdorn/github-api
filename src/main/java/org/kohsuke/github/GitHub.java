@@ -742,7 +742,7 @@ public class GitHub {
         return requester;
     }
 
-    private GHMyself setMyself() throws IOException {
+    public GHMyself setMyself() throws IOException {
         synchronized (this) {
             if (this.myself == null) {
                 this.myself = createRequest().withUrlPath("/user").fetch(GHMyself.class);
