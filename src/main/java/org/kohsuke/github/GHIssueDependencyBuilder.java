@@ -13,6 +13,7 @@ public abstract class GHIssueDependencyBuilder extends GHQueryBuilder<JsonNode> 
 
         public ForAbsolutelyAllInRepo(GitHub root, String owner, String repoName) {
             super(root, owner, repoName, -1);
+            req.with("state", "all");
         }
       
         @Override

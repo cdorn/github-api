@@ -590,7 +590,11 @@ public class GitHub {
     public JsonNode getRawIssue(int number, String repoOwner, String repoName) throws IOException {
         return this.createRequest().withUrlPath("/repos/" + repoOwner + '/' + repoName+ "/issues/" + number).fetch(JsonNode.class);
     }
-     
+
+    public JsonNode getRawResource(String repoOwner, String repoName, String resourcePath) throws IOException {
+        return this.createRequest().withUrlPath("/repos/" + repoOwner + '/' + repoName + "/" + resourcePath).fetch(JsonNode.class);
+    }
+
     /**
      * Is this an anonymous connection.
      *
